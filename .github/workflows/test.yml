@@ -32,7 +32,7 @@ jobs:
     - name: Run tests
       run: |
         echo "Running tests..."
-        CI=true npm test -- --verbose --coverage --watchAll=false
+        CI=true npm test -- --verbose
         
     - name: Build project
       run: |
@@ -52,11 +52,4 @@ jobs:
         name: test-results
         path: |
           coverage/
-          test-results/
-          
-    - name: Upload coverage report
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: coverage-report
-        path: coverage/ 
+          test-results/ 
